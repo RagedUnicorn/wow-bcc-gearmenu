@@ -24,7 +24,7 @@
 ]]--
 
 -- luacheck: globals StaticPopupDialogs StaticPopup_Show SetBindingClick STANDARD_TEXT_FONT
--- luacheck: globals GetBindingAction SetBinding GetCurrentBindingSet AttemptToSaveBindings
+-- luacheck: globals GetBindingAction SetBinding GetCurrentBindingSet SaveBindings
 -- luacheck: globals StaticPopup_Hide
 
 --[[
@@ -310,7 +310,7 @@ function me.UnsetKeyBinding(gearBarId, gearSlotPosition)
   gearSlot.keyBinding = nil
 
   me.UpdateGearBarConfigurationSubMenu()
-  me.AttemptToSaveBindings()
+  me.SaveBindings()
 end
 
 --[[
@@ -329,7 +329,7 @@ function me.UnsetKeyBindingFromGearSlot(gearSlot)
     if match then
       mod.logger.LogInfo(me.tag, "Action found does match GearMenus keyBinding pattern. Removing...")
       SetBinding(gearSlot.keyBinding)
-      me.AttemptToSaveBindings()
+      me.SaveBindings()
     else
       mod.logger.LogDebug("Action does not match GearMenus keyBinding pattern. Ignoring keyBinding...")
     end
@@ -361,7 +361,7 @@ function me.SetKeyBindingToGearSlot(gearBarId, keyBinding, gearSlotPosition)
     -- update the configuration sub menu (show proper keyBinding after change)
     me.UpdateGearBarConfigurationSubMenu()
     -- save keyBindings to wow-cache
-    me.AttemptToSaveBindings()
+    me.SaveBindings()
     me.CleanupKeyBindingOnSlots(gearBarId, gearSlotPosition, keyBinding)
   else
     mod.logger.LogWarn(me.tag, "Failed to update keybinding: " .. keyBinding .. " to " .. uiGearSlot:GetName())
@@ -400,9 +400,9 @@ end
   Blizzard api for saving keybinds. If this is not called after a change the keyBinds are lost after
   a reload of WoW
 ]]--
-function me.AttemptToSaveBindings()
-  mod.logger.LogInfo(me.tag, "Attempting to save bindings in - " .. GetCurrentBindingSet())
-  AttemptToSaveBindings(GetCurrentBindingSet())
+function me.SaveBindings()
+  mod.logger.LogInfo(me.tag, "Save bindings in - " .. GetCurrentBindingSet())
+  SaveBindings(GetCurrentBindingSet())
 end
 
 --[[

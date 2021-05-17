@@ -8,6 +8,12 @@
 ![](/docs/license_mit.svg)
 [![](/docs/curseforge.svg)](https://curseforge.overwolf.com/?addonId=345496&fileId=3310330)
 
+**WoW Classic Support**
+
+> This Addon supports WoW Classic see - [classic-GearMenu](https://github.com/RagedUnicorn/wow-classic-gearmenu/)
+
+<a href="https://github.com/RagedUnicorn/wow-classic-gearmenu/"><img src="/docs/vanilla_logo.png" width="40%"></img></a>
+
 ## Installation
 
 WoW-Addons are installed directly into your WoW directory:

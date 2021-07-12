@@ -145,11 +145,11 @@ If you prefer having certain items in your actionslots GearMenu can still be of 
 
 ##### Finding itemId
 
-Finding the id of a certain item is easiest with websites such as [wowhead](https://classic.wowhead.com/).
+Finding the id of a certain item is easiest with websites such as [wowhead](https://tbc.wowhead.com/).
 
 ```
 # Example:
-https://classic.wowhead.com/item=11815/hand-of-justice
+https://tbc.wowhead.com/item=11815/hand-of-justice
 ```
 
 The number after item is the itemId we search for.

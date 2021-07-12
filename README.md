@@ -22,7 +22,7 @@ WoW-Addons are installed directly into your WoW directory:
 
 Make sure to get the newest version of the Addon from the releases tab:
 
-[GearMenu-Releases](https://github.com/RagedUnicorn/wow-classic-gearmenu/releases)
+[GearMenu-Releases](https://github.com/RagedUnicorn/wow-bcc-gearmenu/releases)
 
 > Note: If the Addon is not showing up in your ingame Addonlist make sure that the Addon is named `GearMenu` in your Addons folder
 
@@ -234,7 +234,7 @@ This is what we call a Lua error and it usually happens because of an oversight 
 
 #### GearMenu spams my chat with messages. How can I deactivate this?
 
-Those obnoxious messages are intended for the development of this addon and means that you download a development version of the addon instead of a proper release. Releases can be downloaded from here - https://github.com/RagedUnicorn/wow-classic-gearmenu/releases
+Those obnoxious messages are intended for the development of this addon and means that you download a development version of the addon instead of a proper release. Releases can be downloaded from here - https://github.com/RagedUnicorn/wow-bcc-gearmenu/releases
 
 #### A certain item is not showing up when I hover a slot. Why is that?
 
@@ -244,7 +244,7 @@ GearMenu filters by default, items that are below common (green) quality. This c
 
 There are certain limitations that make it harder to switch an item even if the player is out of combat. One such example is that WoW prevents switching items while the player is casting a spell. GearMenu detects this and changes the item as soon as there is a pause between two spells or if a spell was cancelled. Just keep this in mind if you absolutely need the item switch to happen as soon as possible. Another factor can be a loss of control effect such as sap, iceblock and similar effects. In such circumstances it is not possible to switch an item. GearMenu is aware of such effects on the player and will switch the item as soon as possible.
 
-If you still think you found an issue where GearMenu doesn't switch items as expected feel free to create an [issue](https://github.com/RagedUnicorn/wow-classic-gearmenu/issues).
+If you still think you found an issue where GearMenu doesn't switch items as expected feel free to create an [issue](https://github.com/RagedUnicorn/wow-bcc-gearmenu/issues).
 
 #### Why can't I switch Weapons during Combat?
 

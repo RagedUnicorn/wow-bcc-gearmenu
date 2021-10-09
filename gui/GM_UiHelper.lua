@@ -153,22 +153,21 @@ end
 
   @param {table} parentFrame
   @param {string} optionFrameName
-  @param {number} posX
-  @param {number} posY
+  @param {table} position
   @param {function} onShowCallback
   @param {function} onClickCallback
   @param {table} checkBoxMetadata
     A table of {elementName, checkBoxTextLabel, tooltipText}
 ]]--
 function me.BuildCheckButtonOption(
-    parentFrame, optionFrameName, posX, posY, onShowCallback, onClickCallback, checkBoxMetadata)
+    parentFrame, optionFrameName, position, onShowCallback, onClickCallback, checkBoxMetadata)
 
   local checkButtonOptionFrame = CreateFrame("CheckButton", optionFrameName, parentFrame, "UICheckButtonTemplate")
   checkButtonOptionFrame:SetSize(
     RGGM_CONSTANTS.CHECK_OPTION_SIZE,
     RGGM_CONSTANTS.CHECK_OPTION_SIZE
   )
-  checkButtonOptionFrame:SetPoint("TOPLEFT", posX, posY)
+  checkButtonOptionFrame:SetPoint(unpack(position))
 
   for _, region in ipairs({checkButtonOptionFrame:GetRegions()}) do
     if string.find(region:GetName() or "", "Text$") and region:IsObjectType("FontString") then

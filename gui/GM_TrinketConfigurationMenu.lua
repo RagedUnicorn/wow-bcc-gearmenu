@@ -75,8 +75,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     trinketMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_TRINKET_MENU_OPT_ENABLE_MENU,
-    20,
-    -80,
+    {"TOPLEFT", 20, -80},
     me.EnableTrinketMenuOnShow,
     me.EnableTrinketMenuOnClick,
     enableTrinketMenuMetaData
@@ -85,8 +84,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     trinketMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_TRINKET_MENU_OPT_LOCK_MENU,
-    20,
-    -110,
+    {"TOPLEFT", 20, -110},
     me.LockTrinketMenuOnShow,
     me.LockTrinketMenuOnClick,
     lockWindowTrinketMenuMetaData
@@ -95,8 +93,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     trinketMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_TRINKET_MENU_SHOW_COOLDOWNS,
-    20,
-    -140,
+    {"TOPLEFT", 20, -140},
     me.ShowCooldownsOnShow,
     me.ShowCooldownsOnClick,
     enableShowCooldownsMetaData

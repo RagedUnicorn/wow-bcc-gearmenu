@@ -86,8 +86,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     generalMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_GENERAL_OPT_ENABLE_TOOLTIPS,
-    20,
-    -80,
+    {"TOPLEFT", 20, -80},
     me.EnableTooltipsOnShow,
     me.EnableTooltipsOnClick,
     enableTooltipsMetaData
@@ -96,8 +95,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     generalMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_GENERAL_OPT_ENABLE_SIMPLE_TOOLTIPS,
-    20,
-    -110,
+    {"TOPLEFT", 20, -110},
     me.EnableSimpleTooltipsOnShow,
     me.EnableSimpleTooltipsOnClick,
     enableSimpleTooltipsMetaData
@@ -106,8 +104,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     generalMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_GENERAL_OPT_ENABLE_DRAG_AND_DROP,
-    20,
-    -140,
+    {"TOPLEFT", 20, -140},
     me.EnableDragAndDropOnShow,
     me.EnableDragAndDropOnClick,
     enableDragAndDropMetaData
@@ -116,8 +113,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     generalMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_GENERAL_OPT_ENABLE_FASTPRESS,
-    20,
-    -170,
+    {"TOPLEFT", 20, -170},
     me.EnableFastPressOnShow,
     me.EnableFastPressOnClick,
     enableFastPressMetaData
@@ -129,8 +125,7 @@ function me.BuildUi(parentFrame)
   mod.uiHelper.BuildCheckButtonOption(
     generalMenuContentFrame,
     RGGM_CONSTANTS.ELEMENT_GENERAL_OPT_ENABLE_UNEQUIP_SLOT,
-    280,
-    -80,
+    {"TOPLEFT", 280, -80},
     me.EnableUnequipSlotOnShow,
     me.EnableUnequipSlotOnClick,
     enableUnequipSlotMetaData

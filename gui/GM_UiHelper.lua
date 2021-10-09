@@ -44,22 +44,21 @@ function me.UpdateSlotTextureAttributes(slot, slotSize)
     slot:SetNormalTexture("//dummy")
   end
 
-  local actualSlotSize = slotSize
   local texture = slot:GetNormalTexture()
   texture:SetTexCoord(0.1, 0.9, 0.1, 0.9)
   texture:SetPoint(
     "TOPLEFT",
     slot,
     "TOPLEFT",
-    actualSlotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER,
-    actualSlotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER * -1
+    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER,
+    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER * -1
   )
   texture:SetPoint(
     "BOTTOMRIGHT",
     slot,
     "BOTTOMRIGHT",
-    actualSlotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER * -1,
-    actualSlotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER
+    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER * -1,
+    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER
   )
 end
 

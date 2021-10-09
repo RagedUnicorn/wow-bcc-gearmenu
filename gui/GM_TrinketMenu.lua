@@ -59,7 +59,7 @@ function me.BuildTrinketMenu()
       framePosition.posY
     )
   else
-    trinketMenuFrame:SetPoint(RGGM_CONSTANTS.GEAR_BAR_DEFAULT_POSITION)
+    trinketMenuFrame:SetPoint(unpack(RGGM_CONSTANTS.GEAR_BAR_DEFAULT_POSITION))
   end
 
   trinketMenuFrame:SetBackdrop({

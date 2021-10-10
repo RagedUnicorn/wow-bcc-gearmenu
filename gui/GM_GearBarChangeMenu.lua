@@ -47,8 +47,9 @@ local changeMenuSlots = {}
   Build the initial changeMenu for bagged items
 ]]--
 function me.BuildChangeMenu()
-  changeMenuFrame = CreateFrame("Frame", RGGM_CONSTANTS.ELEMENT_GEAR_BAR_CHANGE_FRAME, UIParent, "BackdropTemplate")
-  changeMenuFrame:SetWidth(RGGM_CONSTANTS.GEAR_BAR_CHANGE_COLUMN_AMOUNT * RGGM_CONSTANTS.GEAR_BAR_DEFAULT_SLOT_SIZE)
+  changeMenuFrame = CreateFrame("Frame", RGGM_CONSTANTS.ELEMENT_GEAR_BAR_CHANGE_FRAME, nil, "BackdropTemplate")
+  changeMenuFrame:SetWidth(
+    RGGM_CONSTANTS.GEAR_BAR_CHANGE_COLUMN_AMOUNT * RGGM_CONSTANTS.GEAR_BAR_CHANGE_DEFAULT_SLOT_SIZE)
   changeMenuFrame:SetHeight(RGGM_CONSTANTS.GEAR_BAR_CHANGE_DEFAULT_HEIGHT)
   changeMenuFrame:SetPoint("CENTER")
   changeMenuFrame:SetBackdropColor(0, 0, 0, .5)
@@ -92,7 +93,8 @@ end
     The created changeSlot
 ]]--
 function me.CreateChangeSlot(frame, position, xPos, yPos)
-  local changeSlot = CreateFrame("Button",
+  local changeSlot = CreateFrame(
+    "Button",
     RGGM_CONSTANTS.ELEMENT_GEAR_BAR_CHANGE_SLOT .. position,
     frame,
     "BackdropTemplate"

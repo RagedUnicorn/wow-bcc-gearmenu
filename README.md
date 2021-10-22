@@ -6,7 +6,7 @@
 
 ![](/docs/wow_badge.svg)
 ![](/docs/license_mit.svg)
-[![](/docs/curseforge.svg)](https://curseforge.overwolf.com/?addonId=345496&fileId=3449492)
+[![](/docs/curseforge.svg)](https://curseforge.overwolf.com/?addonId=345496&fileId=3499426)
 
 **WoW Classic Support**
 

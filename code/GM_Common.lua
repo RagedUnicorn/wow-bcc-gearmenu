@@ -23,7 +23,7 @@
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ]]--
 
--- luacheck: globals UnitIsDeadOrGhost UnitBuff CastingInfo ChannelInfo UnitIsFeignDeath
+-- luacheck: globals UnitIsDeadOrGhost UnitBuff CastingInfo ChannelInfo UnitIsFeignDeath C_CVar
 
 local mod = rggm
 local me = {}
@@ -82,4 +82,12 @@ function me.Clone(obj)
   end
 
   return res
+end
+
+--[[
+  @return {number}
+    Returns the current uiScale 0..1
+]]--
+function me.GetUiScale()
+  return C_CVar.GetCVar("uiScale")
 end

@@ -23,7 +23,7 @@
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ]]--
 
--- luacheck: globals UnitIsDeadOrGhost UnitBuff CastingInfo ChannelInfo UnitIsFeignDeath C_CVar
+-- luacheck: globals UnitIsDeadOrGhost UnitBuff CastingInfo ChannelInfo UnitIsFeignDeath UIParent
 
 local mod = rggm
 local me = {}
@@ -86,8 +86,8 @@ end
 
 --[[
   @return {number}
-    Returns the current uiScale 0..1
+    Returns the uiScale of the UIParent frame 0..1
 ]]--
 function me.GetUiScale()
-  return C_CVar.GetCVar("uiScale")
+  return UIParent:GetScale()
 end

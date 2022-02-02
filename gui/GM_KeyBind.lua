@@ -496,7 +496,7 @@ end
   a reload of WoW
 ]]--
 function me.SaveBindings()
-  mod.logger.LogInfo(me.tag, "Save bindings in - " .. GetCurrentBindingSet())
+  mod.logger.LogInfo(me.tag, "Attempting to save bindings in - " .. GetCurrentBindingSet())
   SaveBindings(GetCurrentBindingSet())
 end
 

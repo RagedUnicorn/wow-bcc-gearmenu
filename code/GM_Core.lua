@@ -110,9 +110,13 @@ function me.OnEvent(event, ...)
     me.logger.LogEvent(me.tag, "BAG_UPDATE")
 
     if initializationDone then
-      -- trigger UpdateChangeMenu again to update items after an item was equiped
+      -- trigger UpdateChangeMenu again to update items after an item was equipped
       if _G[RGGM_CONSTANTS.ELEMENT_GEAR_BAR_CHANGE_FRAME]:IsVisible() then
         me.gearBarChangeMenu.UpdateChangeMenu()
+      end
+
+      if me.configuration.IsTrinketMenuEnabled() then
+        me.trinketMenu.UpdateTrinketMenu()
       end
     end
   elseif event == "UNIT_INVENTORY_CHANGED" then
@@ -220,6 +224,8 @@ function me.Initialize()
   me.configuration.SetupConfiguration()
   -- setup addon configuration ui
   me.addonConfiguration.SetupAddonConfiguration()
+  -- sync up theme (needs to be happening before accessing ui elements)
+  me.themeCoordinator.UpdateTheme()
   -- build ui for all gearBars
   me.gearBar.BuildGearBars()
   -- build ui for changeMenu

@@ -23,7 +23,7 @@
   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ]]--
 
--- luacheck: globals CreateFrame GetTime STANDARD_TEXT_FONT COOLDOWN_TYPE_NORMAL
+-- luacheck: globals CreateFrame STANDARD_TEXT_FONT
 
 local mod = rggm
 local me = {}
@@ -33,103 +33,7 @@ mod.uiHelper = me
 me.tag = "UiHelper"
 
 --[[
-  Slot prepare texture
-
-  @param {table} slot
-  @param {number} slotSize
-]]--
-function me.UpdateSlotTextureAttributes(slot, slotSize)
-  if slot:GetNormalTexture() == nil then
-    -- set a dummy texture - otherwise GetNormalTexture will return nil
-    slot:SetNormalTexture("//dummy")
-  end
-
-  local texture = slot:GetNormalTexture()
-  texture:SetTexCoord(0.1, 0.9, 0.1, 0.9)
-  texture:SetPoint(
-    "TOPLEFT",
-    slot,
-    "TOPLEFT",
-    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER,
-    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER * -1
-  )
-  texture:SetPoint(
-    "BOTTOMRIGHT",
-    slot,
-    "BOTTOMRIGHT",
-    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER * -1,
-    slotSize * RGGM_CONSTANTS.GEAR_BAR_SLOT_BORDER_MODIFIER
-  )
-end
-
---[[
-  Create a cooldown overlay and attach it to the passed slot
-
-  @param {table} slot
-  @param {string} frameName
-  @param {number} slotSize
-
-  @param {table}
-    The created cooldownOverlay
-]]--
-function me.CreateCooldownOverlay(slot, frameName, slotSize)
-  local cooldownOverlay = CreateFrame(
-    "Cooldown",
-    frameName,
-    slot,
-    "CooldownFrameTemplate"
-  )
-
-  cooldownOverlay:SetAllPoints(slot)
-  -- set fontsize based on slotsize
-  cooldownOverlay:GetRegions()
-    :SetFont(
-      STANDARD_TEXT_FONT,
-      slotSize * RGGM_CONSTANTS.GEAR_BAR_COOLDOWN_TEXT_MODIFIER
-    )
-  cooldownOverlay:SetHideCountdownNumbers(false)
-  cooldownOverlay.currentCooldownType = COOLDOWN_TYPE_NORMAL
-
-  return cooldownOverlay
-end
-
---[[
-  Create a highlight frame and attach it to the passed slot
-
-  @param {table} slot
-
-  @return {table}
-    The created highlightFrame
-]]--
-function me.CreateHighlightFrame(slot)
-  local highlightFrame = CreateFrame("FRAME", nil, slot, "BackdropTemplate")
-  highlightFrame:SetFrameLevel(slot:GetFrameLevel() + 1)
-  highlightFrame:SetPoint("TOPLEFT", slot, "TOPLEFT")
-  highlightFrame:SetPoint("BOTTOMRIGHT", slot, "BOTTOMRIGHT")
-
-  local innerBackdrop = {
-    bgFile = "Interface\\AddOns\\GearMenu\\assets\\ui_slot_background",
-    edgeFile = "Interface\\AddOns\\GearMenu\\assets\\ui_slot_inner_glow",
-    tile = false,
-    tileSize = 16,
-    edgeSize = 16,
-    insets = {
-      left = 10,
-      right = 10,
-      top = 10,
-      bottom = 10
-    }
-  }
-
-  highlightFrame:SetBackdrop(innerBackdrop)
-  highlightFrame:SetBackdropColor(1, 1, 1, 0)
-  highlightFrame:Hide()
-
-  return highlightFrame
-end
-
---[[
-  Create a dropwdownbutton for a dropdown menu
+  Create a dropdown button for a dropdown menu
 
   @param {string} text
   @param {string} value
@@ -262,4 +166,19 @@ function me.CreateSizeSlider(parentFrame, sliderName, position, sliderMinValue, 
 
   -- load initial state
   onShowCallback(sliderFrame)
+end
+
+--[[
+  Create a texture for the icon of whatever item is currently in the slot
+
+  @param {table} slot
+  @param {number} slotSize
+]]--
+function me.CreateItemTexture(slot, slotSize)
+  slot.itemTexture = slot:CreateTexture()
+  slot.itemTexture:SetSize(slotSize - 1, slotSize - 1)
+  slot.itemTexture:SetPoint(
+    "CENTER",
+    0, 0
+  )
 end

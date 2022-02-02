@@ -41,6 +41,11 @@ RGGM_CONSTANTS = {
     ["LSHIFT"] = "SHIFT",
     ["RSHIFT"] = "SHIFT"
   },
+  --[[
+    UI-Styles
+  ]]--
+  UI_THEME_CLASSIC = 1,
+  UI_THEME_CUSTOM = 2,
   MOUSEWHEELUP = 1,
   MOUSEWHEELDOWN = -1,
   ITEMQUALITY = {
@@ -140,6 +145,8 @@ RGGM_CONSTANTS = {
   ELEMENT_GENERAL_OPT_ENABLE_UNEQUIP_SLOT = "GM_OptEnableUnequipSlot",
   ELEMENT_GENERAL_OPT_FILTER_ITEM_QUALITY = "GM_OptFilterItemQuality",
   ELEMENT_GENERAL_LABEL_FILTER_ITEM_QUALITY = "GM_LabelFilterItemQuality",
+  ELEMENT_GENERAL_LABEL_CHOOSE_THEME = "GM_LabelChooseTheme",
+  ELEMENT_GENERAL_OPT_CHOOSE_THEME = "GM_OptChooseTheme",
   --[[
     Trinket Menu
   ]]--

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ragedunicorn.wow.bcc</groupId>
   <artifactId>gearmenu-addon</artifactId>
-  <version>3.2.1</version>
+  <version>3.2.2</version>
   <packaging>pom</packaging>
 
   <properties>

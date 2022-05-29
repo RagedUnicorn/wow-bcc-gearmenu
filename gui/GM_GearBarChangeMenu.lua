@@ -250,7 +250,8 @@ function me.UpdateEmptyChangeSlot(changeMenu, itemCount, gearSlotMetaData, empty
       "} yPos{" .. emptySlotPosition.yPos .. "}"
   )
 
-  me.UpdateChangeSlotSize(changeSlotSize, changeMenu, emptyChangeMenuSlot, emptySlotPosition.xPos, emptySlotPosition.yPos)
+  me.UpdateChangeSlotSize(
+    changeSlotSize, changeMenu, emptyChangeMenuSlot, emptySlotPosition.xPos, emptySlotPosition.yPos)
   mod.themeCoordinator.UpdateSlotTextureAttributes(emptyChangeMenuSlot, changeSlotSize)
 
   -- update metadata for slot

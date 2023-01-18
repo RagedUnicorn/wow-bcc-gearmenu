@@ -80,8 +80,8 @@ function me.GetItemsForInventoryType(inventoryType)
   end
 
   for i = 0, 4 do
-    for j = 1, GetContainerNumSlots(i) do
-      local itemId = GetContainerItemID(i, j)
+    for j = 1, C_Container.GetContainerNumSlots(i) do
+      local itemId = C_Container.GetContainerItemID(i, j)
 
       if itemId then
         local itemName, _, itemRarity, _, _, _, _, _, equipSlot, itemIcon = GetItemInfo(itemId)
@@ -181,11 +181,11 @@ function me.SwitchItems(itemId, slotId)
     local bagNumber, bagPos = me.FindItemInBag(itemId)
 
     if bagNumber and bagPos then
-      local _, _, isLocked = GetContainerItemInfo(bagNumber, bagPos)
+      local _, _, isLocked = C_Container.GetContainerItemInfo(bagNumber, bagPos)
 
       if not isLocked and not IsInventoryItemLocked(bagPos) and not IsInventoryItemLocked(slotId) then
         -- neither container item nor inventory item locked, perform swap
-        PickupContainerItem(bagNumber, bagPos)
+        C_Container.PickupContainerItem(bagNumber, bagPos)
         PickupInventoryItem(slotId)
 
         -- make sure to clear combatQueue
@@ -251,8 +251,8 @@ end
 ]]--
 function me.FindItemInBag(itemId)
   for i = 0, 4 do
-    for j = 1, GetContainerNumSlots(i) do
-      local _, _, id = string.find(GetContainerItemLink(i, j) or "", "item:(%d+):")
+    for j = 1, C_Container.GetContainerNumSlots(i) do
+      local _, _, id = string.find(C_Container.GetContainerItemLink(i, j) or "", "item:(%d+):")
 
       if tonumber(id) == itemId then
         return i, j
@@ -278,8 +278,8 @@ function me.FindQuickChangeItems(inventoryType, mustHaveOnUse)
   end
 
   for i = 0, 4 do
-    for j = 1, GetContainerNumSlots(i) do
-      local itemId = GetContainerItemID(i, j)
+    for j = 1, C_Container.GetContainerNumSlots(i) do
+      local itemId = C_Container.GetContainerItemID(i, j)
 
       if itemId and not me.IsDuplicateItem(items, itemId) then
         local item = me.AddItemsMatchingInventoryType(inventoryType, itemId, mustHaveOnUse)
@@ -394,8 +394,8 @@ function me.UnequipItemToBag(slot)
   PickupInventoryItem(slot.slotId)
 
   for i = 0, 4 do
-    for j = 1, GetContainerNumSlots(i) do
-      local itemId = GetContainerItemID(i, j)
+    for j = 1, C_Container.GetContainerNumSlots(i) do
+      local itemId = C_Container.GetContainerItemID(i, j)
       if itemId == nil then
         if i == 0 then
           PutItemInBackpack()

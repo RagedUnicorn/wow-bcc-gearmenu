@@ -150,10 +150,10 @@ function me.CreateCombatQueueSlot(gearSlot, gearSlotSize)
     combatQueueSlotSize
   )
   combatQueueSlot:SetPoint("TOPRIGHT", gearSlot)
-
+    
   local iconHolderTexture = combatQueueSlot:CreateTexture(
     RGGM_CONSTANTS.ELEMENT_GEAR_BAR_SLOT_ICON_TEXTURE_NAME,
-    "LOW",
+    "BACKGROUND",
     nil
   )
   iconHolderTexture:SetPoint("TOPLEFT", combatQueueSlot, "TOPLEFT")
@@ -293,7 +293,7 @@ function me.UpdateCombatQueue(slotId, itemId)
 
         if itemId then
           if bagNumber ~= nil and bagPos ~= nil then
-            icon:SetTexture(GetContainerItemInfo(bagNumber, bagPos))
+            icon:SetTexture(C_Container.GetContainerItemInfo(bagNumber, bagPos))
             icon:Show()
           end
         else

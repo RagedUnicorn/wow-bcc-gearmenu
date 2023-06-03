@@ -226,6 +226,7 @@ end
 --[[
   Visually update an empty changeslot
 
+
   @param {table} changeMenu
   @param {number} itemCount
   @param {table} gearSlotMetaData
@@ -235,6 +236,8 @@ end
 function me.UpdateEmptyChangeSlot(changeMenu, itemCount, gearSlotMetaData, emptySlotPosition, changeSlotSize)
   if not mod.configuration.IsUnequipSlotEnabled()
     or not mod.itemManager.HasItemEquipedInSlot(gearSlotMetaData.slotId) then return end
+
+
 
   if itemCount > RGGM_CONSTANTS.GEAR_BAR_CHANGE_SLOT_AMOUNT_ITEMS then
     itemCount = #changeMenuSlots -- last slot is reserved for the empty slot
